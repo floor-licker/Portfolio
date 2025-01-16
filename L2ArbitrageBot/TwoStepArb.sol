@@ -41,12 +41,12 @@ constructor() {
 owner = msg.sender;
 
 // Initialize routers
-uniswapRouter = IUniswapV3Router(0xE592427A0AEce92De3Edee1F18E0157C05861564); // Uniswap V3 Router on Arbitrum
+uniswapRouter = IUniswapV3Router(0xE592427A0AEce92De3Edee1F18E0157C05861564); // Uniswap V3 Router on Arbitrum (Verified)
 sushiswapRouter = IUniswapV3Router(0x1af415a1EbA07a4986a52B6f2e7dE7003D82231e); // SushiSwap V3 Router on Arbitrum
 
 // Default trading pair
-tokenIn = 0x82aF49447D8a07e3bd95BD0d56f35241523fBab1; // WETH
-tokenOut = 0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9; // USDT
+tokenIn = 0x82aF49447D8a07e3bd95BD0d56f35241523fBab1; // WETH (Verified)
+tokenOut = 0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9; // USDT (Verified)
 
 // Approve maximum token amounts for BOTH tokenOut (USDT) AND tokenIn (WETH)
 IERC20(tokenOut).approve(address(uniswapRouter), type(uint256).max);
