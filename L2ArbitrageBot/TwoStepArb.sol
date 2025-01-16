@@ -159,6 +159,8 @@ amountIn: amountIn,
 amountOutMinimum: (amountIn * (10000 - slippageTolerance)) / 10000,
 sqrtPriceLimitX96: 0
 });
+
+// ExactInputSingle swaps amountIn of one token for as much as possible of another token
 uint256 uniAmountOut = uniswapRouter.exactInputSingle(uniParams);
 
 // SECOND SWAP: USDT -> WETH on SushiSwap
@@ -172,6 +174,8 @@ amountIn: uniAmountOut, // use the USDT we just got from Uniswap
 amountOutMinimum: (uniAmountOut * (10000 - slippageTolerance)) / 10000,
 sqrtPriceLimitX96: 0
 });
+
+// ExactInputSingle swaps amountIn of one token for as much as possible of another token
 uint256 sushiAmountOut = sushiswapRouter.exactInputSingle(sushiParams);
 
 // Simplistic "profit" check: difference between final WETH from both paths
