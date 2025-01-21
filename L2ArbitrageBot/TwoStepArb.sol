@@ -83,7 +83,6 @@ contract L2ArbitrageBot {
     receive() external payable {}
     fallback() external payable {}
 
-    // --------------------- Withdraw Functions (unchanged) ---------------------
     function withdrawAllEther(address recipient) public onlyOwner {
         uint256 etherBalance = address(this).balance;
         require(etherBalance > 0, "No Ether to withdraw");
@@ -120,7 +119,6 @@ contract L2ArbitrageBot {
         withdrawAllUSDT(owner);
     }
 
-    // --------------------- Update Variables (unchanged) ---------------------
     function setGasMultiplier(uint256 newMultiplier) external onlyOwner {
         require(newMultiplier > 0, "Multiplier must be greater than zero");
         uint256 oldMultiplier = gasMultiplier;
@@ -146,6 +144,7 @@ contract L2ArbitrageBot {
     }
 
     // --------------------- MAIN ARBITRAGE LOGIC ---------------------
+
     function executeArbitrage() external onlyOwner {
         uint256 gasStart = gasleft();
         uint256 wethBalance = IERC20(tokenIn).balanceOf(address(this));
